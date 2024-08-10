@@ -6,3 +6,16 @@ javascript
 
 npm install 
 npm run dev
+
+# install tailwindcss
+https://tailwindcss.com/docs/installation
+
+# install daisyui
+https://daisyui.com/docs/install/
+
+
+Clear Vite Cache in ES6 Projects
+rm -rf node_modules/.vite
+
+
+1:38:00 - frontend part
