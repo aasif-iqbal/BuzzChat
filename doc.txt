@@ -14,6 +14,9 @@ https://tailwindcss.com/docs/installation
 https://daisyui.com/docs/install/
 
 # setup postcss.config.js
+Clear Vite Cache in ES6 Projects
+rm -rf node_modules/.vite
+
 
 # setup tailwindcss intellisence ext in vscode
 
@@ -21,9 +24,13 @@ https://daisyui.com/docs/install/
 https://react-icons.github.io/react-icons/
 npm install react-icons --save
 
+# React Router Dom
+npm i react-router-dom
 
-Clear Vite Cache in ES6 Projects
-rm -rf node_modules/.vite
+https://reactrouter.com/en/main/router-components/browser-router
 
+# React Hot toast
+npm i react-hot-toast
 
 1:38:00 - frontend part
+2:45:00 - signup
