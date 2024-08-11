@@ -13,6 +13,14 @@ https://tailwindcss.com/docs/installation
 # install daisyui
 https://daisyui.com/docs/install/
 
+# setup postcss.config.js
+
+# setup tailwindcss intellisence ext in vscode
+
+# install React icons
+https://react-icons.github.io/react-icons/
+npm install react-icons --save
+
 
 Clear Vite Cache in ES6 Projects
 rm -rf node_modules/.vite
