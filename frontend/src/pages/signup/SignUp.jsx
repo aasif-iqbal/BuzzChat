@@ -13,18 +13,18 @@ const SignUp = () => {
     gender: ""
   });
 
-  // const { loading, signup } = useSignup();
+  const { loading, signup } = useSignup();
+
+  const handleGenderCheckbox = async(gender)=> {
+    setInputs({...inputs, gender});    
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault(); 
     // console.log(inputs)
     await signup(inputs)
   }
-
-  const handleGenderCheckbox = (gender)=> {
-    setInputs({...inputs, gender});
-  }
-
+  
   return (
     <div className="flex flex-col items-center justify-center min-w-96 mx-auto">
       <div className="w-full p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0">
