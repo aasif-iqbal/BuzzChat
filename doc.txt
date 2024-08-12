@@ -32,5 +32,9 @@ https://reactrouter.com/en/main/router-components/browser-router
 # React Hot toast
 npm i react-hot-toast
 
-1:38:00 - frontend part
-2:45:00 - signup
+==========
+Backend 
+
+export default use to send single value , if multiple the export { login, signup }
+
+npm install express mongoose dotenv socket.io cookie-parser jsonwebtoken bcryptjs 
