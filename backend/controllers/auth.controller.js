@@ -64,8 +64,30 @@ const signup = async (req, res) => {
   }
 };
 
-const login = (req, res) => {
-  console.login("here");
+const login = async(req, res) => {
+  
+  try {
+    const { username, password } = req.body;
+    const user = await User.findOne({username});
+
+    if(!user){
+      return res.status(404).json({'error':'User Not Found'});
+    }
+
+    const isPasswordMatch = await bcrypt.compare(password, user?.password);
+
+    if(!isPasswordMatch){
+      return res.status(401).json({'error':'Unauthorized User'});
+    }
+    
+    // generateTokenAndSetCookie(User._id, res);
+
+    return res.status(200).json({
+      "message":"Login User Successfully"
+    });
+  } catch (error) {
+    
+  }  
 };
 
 export { signup, login };
