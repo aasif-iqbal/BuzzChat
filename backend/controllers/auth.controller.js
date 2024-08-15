@@ -1,5 +1,6 @@
 import User from "../models/user.model.js";
 import bcrypt from "bcryptjs";
+import generateTokenAndSetCookie from "../utils/tokenGenerator.js";
 
 const signup = async (req, res) => {
   try {
@@ -8,8 +9,7 @@ const signup = async (req, res) => {
       username,
       password,
       confirmPassword,
-      gender,
-      profilePic,
+      gender
     } = req.body;
 
     const isUserExist = await User.findOne({ username });
@@ -44,7 +44,7 @@ const signup = async (req, res) => {
 
     if (newUser) {
       // Generate JWT token here
-      // generateTokenAndSetCookie(newUser._id, res);
+      generateTokenAndSetCookie(newUser._id, res);
       await newUser.save();
 
       res.status(201).send({
@@ -80,14 +80,30 @@ const login = async(req, res) => {
       return res.status(401).json({'error':'Unauthorized User'});
     }
     
-    // generateTokenAndSetCookie(User._id, res);
-
+    generateTokenAndSetCookie(user._id, res);
+    console.log('here');
     return res.status(200).json({
       "message":"Login User Successfully"
     });
   } catch (error) {
-    
+    console.log("Error in signup controller", error.message);
+    res.status(500).json({ error: "Internal Server Error" });
   }  
 };
 
-export { signup, login };
+const logout = (req, res) => {
+
+  try {
+    res.cookie('token', '', {maxAge:0});
+    res.status(200).json({message:'Logged out successfully'});
+  } catch (error) {
+    console.log("Error in logout controller", error.message);
+		res.status(500).json({ error: "Internal Server Error" });
+  }
+}
+
+export { 
+  signup, 
+  login, 
+  logout 
+};
