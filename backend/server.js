@@ -28,8 +28,10 @@ app.use(cookieParser());
 app.use('/api/auth', authRoutes);
 app.use('/api/messages',  messageRoutes);
 
-app.listen(PORT, () => {
-  //calling database
-  connectToMongoDB();
-  console.log(`${PORT}`);
-});
+
+connectToMongoDB().then(()=>{
+  app.listen(PORT, () => {  
+    console.log(`Listen port:${PORT}`);
+  });
+}).catch((err)=> console.log(err));
+
